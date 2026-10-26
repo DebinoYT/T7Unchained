@@ -1,0 +1,16 @@
+# Copy this file into the active BO3 mod's zone directory; the DLL reads it there.
+# Relative virtual addresses (RVAs) are based on the BO3 executable image base.
+# DB_XAssetPool values are carried over from the existing T7Overcharged build table.
+# On load, the DLL logs how many decrypted code sites reference this table; a
+# near-zero count means the RVA is wrong for the running executable.
+DB_XAssetPool.march_2023=0x94073F0
+DB_XAssetPool.february_2026=0x93883F0
+DB_XAssetPool.september_2026=0x93883F0
+
+# Only used if the pools are still uninitialized when the DLL loads, which does
+# not happen when it is loaded from Lua: pools that are already initialized are
+# extended in place without any code hooks. Verify against the decrypted
+# executable before setting.
+# DB_AssetPoolInit.march_2023=0x...
+# DB_AssetPoolInit.february_2026=0x...
+# DB_AssetPoolInit.september_2026=0x...
